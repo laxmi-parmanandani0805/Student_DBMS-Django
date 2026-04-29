@@ -1,0 +1,61 @@
+{% extends 'students/layout.html' %}
+
+{% block head %}
+<style>
+.table-box {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #667eea;
+    color: white;
+    padding: 12px;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+tr:hover {
+    background: #f5f7fb;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<h1>Student Records</h1>
+
+<div class="table-box">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Roll No</th>
+            <th>Marks</th>
+        </tr>
+
+        {% for s in students %}
+        <tr>
+            <td>{{ s.name }}</td>
+            <td>{{ s.roll_no }}</td>
+            <td>{{ s.marks }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">No students yet</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>
+
+{% endblock %}

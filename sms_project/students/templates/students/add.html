@@ -1,0 +1,98 @@
+{% extends 'students/layout.html' %}
+
+{% block head %}
+<style>
+.form-box {
+    max-width: 520px;
+    margin: auto;
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.form-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.form-subtitle {
+    color: #6b7280;
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+    margin-top: 14px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+input:focus, select:focus {
+    border-color: #667eea;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.errorlist {
+    color: red;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+    font-size: 14px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="form-box">
+    <div class="form-title">Add Student</div>
+    <div class="form-subtitle">Create a new student record.</div>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.non_field_errors }}
+
+        <label for="{{ form.name.id_for_label }}">Full Name</label>
+        {{ form.name }}
+        {{ form.name.errors }}
+
+        <label for="{{ form.roll_no.id_for_label }}">Roll Number</label>
+        {{ form.roll_no }}
+        {{ form.roll_no.errors }}
+
+        <label for="{{ form.marks.id_for_label }}">Marks</label>
+        {{ form.marks }}
+        {{ form.marks.errors }}
+
+        <label for="{{ form.course.id_for_label }}">Course</label>
+        {{ form.course }}
+        {{ form.course.errors }}
+
+        <button type="submit">Save Student</button>
+    </form>
+</div>
+{% endblock %}

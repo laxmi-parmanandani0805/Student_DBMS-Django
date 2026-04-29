@@ -1,0 +1,74 @@
+{% extends 'students/layout.html' %}
+
+{% block head %}
+<style>
+    .delete-box {
+        max-width: 500px;
+        margin: 40px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        text-align: center;
+    }
+
+    .warning {
+        font-size: 48px;
+        margin-bottom: 10px;
+    }
+
+    .delete-title {
+        font-size: 26px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .delete-text {
+        color: #6b7280;
+        margin-bottom: 25px;
+    }
+
+    .btn-row {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+    }
+
+    .btn-danger {
+        background: #dc2626;
+        color: white;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+    }
+
+    .btn-secondary {
+        background: #e5e7eb;
+        color: #111827;
+        text-decoration: none;
+        padding: 12px 18px;
+        border-radius: 10px;
+        font-weight: 600;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="delete-box">
+    <div class="warning">⚠️</div>
+    <div class="delete-title">Confirm Delete</div>
+    <div class="delete-text">
+        Are you sure you want to delete <strong>{{ student.name }}</strong>?
+    </div>
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="btn-row">
+            <button type="submit" class="btn-danger">Yes, Delete</button>
+            <a href="{% url 'index' %}" class="btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
