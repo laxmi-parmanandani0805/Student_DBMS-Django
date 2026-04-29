@@ -61,7 +61,7 @@ python manage.py runserver
 ---
 
 
-# 🌐 Usage
+## 🌐 Usage
 
 
 - Once the server is running, open your web browser and navigate to: 👉 http://127.0.0.1:8000/ (or http://localhost:8000/)
@@ -71,7 +71,7 @@ python manage.py runserver
 ---
   
 
-# 🗄️ Database Note
+## 🗄️ Database Note
 
 
 - This project uses SQLite, which stores the entire database in a single local file (db.sqlite3) inside the project directory. You do not need to install MongoDB, MySQL, or Postgres to run this application.
@@ -79,7 +79,7 @@ python manage.py runserver
 ---
 
 
-### 👩‍💻 Author
+## 👩‍💻 Author
 
 
 **Laxmi Parmanandani** 
